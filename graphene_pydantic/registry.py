@@ -40,9 +40,9 @@ class Registry(Generic[T]):
     def __init__(self, required_obj_type: ObjectType):
         self._required_obj_type: ObjectType = required_obj_type
         self._registry: Dict[ModelType, Output] = {}
-        self._registry_object_fields: Dict[
-            ObjectType, Dict[str, ModelField]
-        ] = defaultdict(dict)
+        self._registry_object_fields: Dict[ObjectType, Dict[str, ModelField]] = (
+            defaultdict(dict)
+        )
 
     def register(self, obj_type: ObjectType):
         assert_is_correct_type(obj_type, self._required_obj_type)
